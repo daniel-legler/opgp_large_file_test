@@ -1,13 +1,6 @@
-//
-//  opgptestTests.swift
-//  opgptestTests
-//
-//  Created by Daniel Legler on 2/1/18.
-//  Copyright © 2018 opgptest. All rights reserved.
-//
-
 import XCTest
 @testable import opgptest
+import ObjectivePGP
 
 class opgptestTests: XCTestCase {
     
@@ -21,16 +14,52 @@ class opgptestTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLargeFileEncryption() {
+        
+        report_memory()
+        guard let dataUrl = Bundle(for: type(of: self)).url(forResource: "LargeFile", withExtension: "pdf") else {
+            XCTFail("Failed to find test file")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: dataUrl)
+            
+            print("Size of Unencrypted Data (in MB): \(Float(data.count)/1024/1024)")
+            
+            let pubKey = TestHelpers.objectivePgpPublicKey
+            let armoredData = try Armor.readArmored(pubKey)
+            let key = ObjectivePGP.readKeys(from: armoredData)
+            
+            report_memory()
+            
+            let encryptedData = try ObjectivePGP.encrypt(data, using: key, armored: true)
+            
+            report_memory()
+            
+            print("Size of Encrypted Data (in MB): \(Float(encryptedData.count)/1024/1024)")
+            
+            sleep(10) // Observe memory usage in Xcode also
+            
+        } catch {
+            XCTFail("Couldn't generate data from test file")
         }
     }
     
+    func report_memory() {
+        var taskInfo = mach_task_basic_info()
+        var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
+        let kerr: kern_return_t = withUnsafeMutablePointer(to: &taskInfo) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                task_info(mach_task_self_, task_flavor_t(MACH_TASK_BASIC_INFO), $0, &count)
+            }
+        }
+        
+        if kerr == KERN_SUCCESS {
+            print("System Memory Used (in MB): \(Float(taskInfo.resident_size)/1024/1024)")
+        } else {
+            print("Error with task_info(): " +
+                (String(cString: mach_error_string(kerr), encoding: String.Encoding.ascii) ?? "unknown error"))
+        }
+    }
 }
