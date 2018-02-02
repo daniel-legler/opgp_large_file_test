@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D2F66372023F40900EB20ED /* opgptestTestsObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F66362023F40900EB20ED /* opgptestTestsObjc.m */; };
 		8D46AC7D2023A27100C33A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D46AC7C2023A27100C33A0B /* AppDelegate.swift */; };
 		8D46AC7F2023A27100C33A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D46AC7E2023A27100C33A0B /* ViewController.swift */; };
 		8D46AC822023A27100C33A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D46AC802023A27100C33A0B /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 		3C13DC694B4BC71ADFB50037 /* Pods_opgptestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_opgptestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6017863E873E9FB81D6B52C8 /* Pods-opgptestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-opgptestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-opgptestTests/Pods-opgptestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C5B5A08EE121D8F55CB7C86 /* Pods-opgptest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-opgptest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-opgptest/Pods-opgptest.debug.xcconfig"; sourceTree = "<group>"; };
+		8D2F66352023F40900EB20ED /* opgptestTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "opgptestTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D2F66362023F40900EB20ED /* opgptestTestsObjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = opgptestTestsObjc.m; sourceTree = "<group>"; };
 		8D46AC792023A27100C33A0B /* opgptest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opgptest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D46AC7C2023A27100C33A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D46AC7E2023A27100C33A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				8D46AC912023A27100C33A0B /* opgptestTests.swift */,
 				8D46AC932023A27100C33A0B /* Info.plist */,
 				8DBA41B52023A50A00528A50 /* TestHelpers.swift */,
+				8D2F66362023F40900EB20ED /* opgptestTestsObjc.m */,
+				8D2F66352023F40900EB20ED /* opgptestTests-Bridging-Header.h */,
 			);
 			path = opgptestTests;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 					};
 					8D46AC8C2023A27100C33A0B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8D46AC782023A27100C33A0B;
 					};
@@ -357,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D2F66372023F40900EB20ED /* opgptestTestsObjc.m in Sources */,
 				8D46AC922023A27100C33A0B /* opgptestTests.swift in Sources */,
 				8DBA41B62023A50A00528A50 /* TestHelpers.swift in Sources */,
 			);
@@ -507,7 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CHNJ7UMJ5W;
 				INFOPLIST_FILE = opgptest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = opgptest.opgptest;
@@ -523,7 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CHNJ7UMJ5W;
 				INFOPLIST_FILE = opgptest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = opgptest.opgptest;
@@ -539,12 +546,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHNJ7UMJ5W;
 				INFOPLIST_FILE = opgptestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = opgptest.opgptestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "opgptestTests/opgptestTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opgptest.app/opgptest";
@@ -557,12 +567,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHNJ7UMJ5W;
 				INFOPLIST_FILE = opgptestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = opgptest.opgptestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "opgptestTests/opgptestTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opgptest.app/opgptest";
