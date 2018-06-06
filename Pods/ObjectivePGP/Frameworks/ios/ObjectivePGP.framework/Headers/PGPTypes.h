@@ -20,7 +20,15 @@ static NSString *const PGPErrorDomain = @"com.objectivepgp";
 typedef NS_ERROR_ENUM(PGPErrorDomain, PGPErrorCode) {
     PGPErrorGeneral = -1,
     PGPErrorPassphraseRequired = 5,
-    PGPErrorPassphraseInvalid = 6
+    PGPErrorPassphraseInvalid = 6,
+    /// Invalid signature. Signature is invalid or cannot be verified (eg. missing key)
+    PGPErrorInvalidSignature = 7,
+    /// The message is not signed.
+    PGPErrorNotSigned = 8,
+    /// Invalid PGP message. Invalid or corrupted data that can't be processed.
+    PGPErrorInvalidMessage = 9,
+    PGPErrorMissingSignature = 10,
+    PGPErrorNotFound = 11
 };
 
 typedef NS_ENUM(NSInteger, PGPFormatType) {
@@ -38,13 +46,13 @@ typedef NS_ENUM(UInt8, PGPPacketTag) {
     PGPInvalidPacketTag = 0,
     PGPPublicKeyEncryptedSessionKeyPacketTag = 1,
     PGPSignaturePacketTag = 2,
-    PGPSymetricKeyEncryptedSessionKeyPacketTag = 3, // TODO
+    PGPSymetricKeyEncryptedSessionKeyPacketTag = 3,
     PGPOnePassSignaturePacketTag = 4,
     PGPSecretKeyPacketTag = 5,
     PGPPublicKeyPacketTag = 6,
     PGPSecretSubkeyPacketTag = 7,
     PGPCompressedDataPacketTag = 8,
-    PGPSymmetricallyEncryptedDataPacketTag = 9, // TODO
+    PGPSymmetricallyEncryptedDataPacketTag = 9,
     PGPMarkerPacketTag = 10, // Ignored (Obsolete Literal Packet)
     PGPLiteralDataPacketTag = 11,
     PGPTrustPacketTag = 12,
@@ -69,7 +77,7 @@ typedef NS_ENUM(UInt8, PGPPublicKeyAlgorithm) {
     PGPPublicKeyAlgorithmElliptic = 18,
     PGPPublicKeyAlgorithmECDSA = 19,
     PGPPublicKeyAlgorithmElgamalEncryptorSign = 20, // Deprecated ?
-    PGPPublicKeyAlgorithmDiffieHellman = 21,
+    PGPPublicKeyAlgorithmDiffieHellman = 21, // TODO: Deprecated?
     PGPPublicKeyAlgorithmPrivate1 = 100,
     PGPPublicKeyAlgorithmPrivate2 = 101,
     PGPPublicKeyAlgorithmPrivate3 = 102,
@@ -151,8 +159,9 @@ typedef NS_ENUM(UInt8, PGPSignatureSubpacketType) {
     PGPSignatureSubpacketTypeSignerUserID = 28,
     PGPSignatureSubpacketTypeReasonForRevocation = 29,
     PGPSignatureSubpacketTypeFeatures = 30,
-    PGPSignatureSubpacketTypeSignatureTarget = 31, // TODO
-    PGPSignatureSubpacketTypeEmbeddedSignature = 32
+    PGPSignatureSubpacketTypeSignatureTarget = 31, // Seems unused at all
+    PGPSignatureSubpacketTypeEmbeddedSignature = 32,
+    PGPSignatureSubpacketTypeIssuerFingerprint = 33 // TODO: Experimental: Issuer fingerprint
 };
 
 // 5.2.3.21.  Key Flags

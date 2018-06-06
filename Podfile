@@ -5,7 +5,7 @@ target 'opgptest' do
   use_frameworks!
 
   # Pods for opgptest
-  pod 'ObjectivePGP'
+  pod 'ObjectivePGP', :git => 'https://github.com/krzyzanowskim/ObjectivePGP.git', :branch => 'master'
 
   target 'opgptestTests' do
     inherit! :search_paths

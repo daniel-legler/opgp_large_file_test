@@ -1,12 +1,22 @@
 PODS:
-  - ObjectivePGP (0.9.5)
+  - ObjectivePGP (0.10.0-beta3)
 
 DEPENDENCIES:
-  - ObjectivePGP
+  - ObjectivePGP (from `https://github.com/krzyzanowskim/ObjectivePGP.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  ObjectivePGP:
+    :branch: master
+    :git: https://github.com/krzyzanowskim/ObjectivePGP.git
+
+CHECKOUT OPTIONS:
+  ObjectivePGP:
+    :commit: c1c0358a16904f3566226418ec6542e99c01c228
+    :git: https://github.com/krzyzanowskim/ObjectivePGP.git
 
 SPEC CHECKSUMS:
-  ObjectivePGP: b76eb4b961b4a2c12bc34adcee08ae1e081b3431
+  ObjectivePGP: 3938e116d295ee461528db31bbf595356e57abf5
 
-PODFILE CHECKSUM: 63ff8f04186a0490cf9222f31f1a88b817d529da
+PODFILE CHECKSUM: bc5062306ce089a3661ddd57fab4b179be15489c
 
 COCOAPODS: 1.4.0

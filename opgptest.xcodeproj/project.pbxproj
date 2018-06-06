@@ -14,6 +14,7 @@
 		8D46AC842023A27100C33A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D46AC832023A27100C33A0B /* Assets.xcassets */; };
 		8D46AC872023A27100C33A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D46AC852023A27100C33A0B /* LaunchScreen.storyboard */; };
 		8D46AC922023A27100C33A0B /* opgptestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D46AC912023A27100C33A0B /* opgptestTests.swift */; };
+		8D7A431F20C84784007188E3 /* pubring.gpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D7A431E20C84784007188E3 /* pubring.gpg */; };
 		8DBA41B62023A50A00528A50 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA41B52023A50A00528A50 /* TestHelpers.swift */; };
 		8DBA41B82023A75D00528A50 /* LargeFile.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8DBA41B72023A75D00528A50 /* LargeFile.pdf */; };
 		944755E76026684E7AC7006C /* Pods_opgptest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC05245CC14F9CE733CC4EDD /* Pods_opgptest.framework */; };
@@ -46,6 +47,7 @@
 		8D46AC8D2023A27100C33A0B /* opgptestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = opgptestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D46AC912023A27100C33A0B /* opgptestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opgptestTests.swift; sourceTree = "<group>"; };
 		8D46AC932023A27100C33A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D7A431E20C84784007188E3 /* pubring.gpg */ = {isa = PBXFileReference; lastKnownFileType = file; path = pubring.gpg; sourceTree = "<group>"; };
 		8DBA41B52023A50A00528A50 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		8DBA41B72023A75D00528A50 /* LargeFile.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LargeFile.pdf; sourceTree = "<group>"; };
 		A657D7256CF237A49279D85B /* Pods-opgptest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-opgptest.release.xcconfig"; path = "Pods/Target Support Files/Pods-opgptest/Pods-opgptest.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBA41B72023A75D00528A50 /* LargeFile.pdf */,
+				8D7A431E20C84784007188E3 /* pubring.gpg */,
 				8D46AC912023A27100C33A0B /* opgptestTests.swift */,
 				8D46AC932023A27100C33A0B /* Info.plist */,
 				8DBA41B52023A50A00528A50 /* TestHelpers.swift */,
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7A431F20C84784007188E3 /* pubring.gpg in Resources */,
 				8DBA41B82023A75D00528A50 /* LargeFile.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

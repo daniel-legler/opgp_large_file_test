@@ -14,6 +14,32 @@ class opgptestTests: XCTestCase {
         super.tearDown()
     }
     
+    func testReadingLargeKeyringFileFromData() {
+        report_memory()
+        
+        let keysDataUrl = Bundle(for: type(of: self)).url(forResource: "pubring", withExtension: "gpg")!
+        do {
+            let data = try Data(contentsOf: keysDataUrl)
+            print("Size of Key Data (in MB): \(Float(data.count)/1024/1024)")
+            _ = try ObjectivePGP.readKeys(from: data)
+            report_memory()
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testReadingLargeKeyringFileFromFile() {
+        report_memory()
+        
+        let keysDataUrl = Bundle(for: type(of: self)).url(forResource: "pubring", withExtension: "gpg")!
+        do {
+            _ = try ObjectivePGP.readKeys(fromPath: keysDataUrl.path)
+            report_memory()
+        } catch {
+            XCTFail()
+        }
+    }
+
     func testLargeFileEncryption() {
         
         report_memory()
@@ -29,17 +55,17 @@ class opgptestTests: XCTestCase {
             
             let pubKey = TestHelpers.objectivePgpPublicKey
             let armoredData = try Armor.readArmored(pubKey)
-            let key = ObjectivePGP.readKeys(from: armoredData)
+            let key = try ObjectivePGP.readKeys(from: armoredData)
             
             report_memory()
             
-            let encryptedData = try ObjectivePGP.encrypt(data, using: key, armored: true)
+            let encryptedData = try ObjectivePGP.encrypt(data, addSignature: false, using: key)
             
             report_memory()
             
             print("Size of Encrypted Data (in MB): \(Float(encryptedData.count)/1024/1024)")
             
-            sleep(10) // Observe memory usage in Xcode also
+            sleep(10) // To observe memory usage in Xcode also
             
         } catch {
             XCTFail("Couldn't generate data from test file")

@@ -40,7 +40,7 @@
     
     report_memory();
     
-    NSData *encryptedData = [ObjectivePGP encrypt:unencryptedData usingKeys:@[key] armored:YES error:nil];
+    NSData *encryptedData = [ObjectivePGP encrypt:unencryptedData addSignature:NO usingKeys:@[key] passphraseForKey:nil error:nil];
     
     report_memory();
     sleep(10);
